@@ -5,6 +5,11 @@ import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { BookOpen, Rocket, Code2, Palette, HelpCircle, MessageSquare, FileText, Monitor, ChevronLeft, ChevronRight } from 'lucide-react'
+import { FaReact, FaAngular, FaVuejs, FaHtml5 } from "react-icons/fa";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiNuxtdotjs } from "react-icons/si";
+
+
 
 const navigation = [
   {
@@ -47,37 +52,37 @@ const navigation = [
       { 
         title: "React", 
         href: "/docs/frameworks/react", 
-        icon: Code2,
+        icon: FaReact,
         description: "React integration guide"
       },
       { 
         title: "Vue.js", 
         href: "/docs/frameworks/vue", 
-        icon: Code2,
+        icon: FaVuejs,
         description: "Vue.js integration guide"
       },
       { 
         title: "Next.js", 
         href: "/docs/frameworks/nextjs", 
-        icon: Code2,
+        icon: RiNextjsFill,
         description: "Next.js integration guide"
       },
       { 
         title: "Nuxt.js", 
         href: "/docs/frameworks/nuxtjs", 
-        icon: Code2,
+        icon: SiNuxtdotjs,
         description: "Nuxt.js integration guide"
       },
       { 
         title: "Angular", 
         href: "/docs/frameworks/angular", 
-        icon: Code2,
+        icon: FaAngular,
         description: "Angular integration guide"
       },
       { 
         title: "HTML/JavaScript", 
         href: "/docs/frameworks/html-javascript", 
-        icon: FileText,
+        icon: FaHtml5,
         description: "Vanilla HTML/JS integration"
       },
     ]

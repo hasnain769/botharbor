@@ -1,64 +1,38 @@
 "use client"
 
-import { useState } from 'react'
-import { Check, Copy } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Copy, Check } from "lucide-react"
 
 interface CodeBlockProps {
-  children: string
+  code: string
   language?: string
-  filename?: string
-  showLineNumbers?: boolean
+  title?: string
 }
 
-export function CodeBlock({ 
-  children, 
-  language = 'javascript', 
-  filename,
-  showLineNumbers = false 
-}: CodeBlockProps) {
+export function CodeBlock({ code, language = "javascript", title }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
 
   const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(children)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error('Failed to copy text: ', err)
-    }
+    await navigator.clipboard.writeText(code)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   return (
-    <div className="relative group">
-      {filename && (
-        <div className="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-gray-700 rounded-t-lg">
-          <span className="text-sm text-gray-300 font-mono">{filename}</span>
+    <div className="relative rounded-lg border bg-muted/50">
+      {title && (
+        <div className="border-b px-4 py-2">
+          <span className="text-sm font-medium">{title}</span>
         </div>
       )}
-      
       <div className="relative">
-        <pre className={cn(
-          "overflow-x-auto p-4 bg-gray-900 text-gray-100 text-sm leading-relaxed",
-          filename ? "rounded-b-lg" : "rounded-lg",
-          "border border-gray-700"
-        )}>
-          <code className={`language-${language}`}>
-            {children}
-          </code>
+        <pre className="overflow-x-auto p-4">
+          <code className={`language-${language} text-sm`}>{code}</code>
         </pre>
-        
-        <button
-          onClick={copyToClipboard}
-          className="absolute top-3 right-3 p-2 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-all duration-200 opacity-0 group-hover:opacity-100"
-          aria-label="Copy code"
-        >
-          {copied ? (
-            <Check className="h-4 w-4 text-green-400" />
-          ) : (
-            <Copy className="h-4 w-4" />
-          )}
-        </button>
+        <Button size="sm" variant="ghost" className="absolute right-2 top-2" onClick={copyToClipboard}>
+          {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+        </Button>
       </div>
     </div>
   )

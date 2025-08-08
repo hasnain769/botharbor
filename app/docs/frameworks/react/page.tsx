@@ -5,7 +5,7 @@ import { CodeBlock } from "@/components/code-block"
 export default function ReactIntegrationPage() {
   return (
     <div className="min-h-screen bg-gray-950">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 ">
         <div className="space-y-6 sm:space-y-8">
           <div className="space-y-4 sm:space-y-6">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-2 sm:mb-4">
