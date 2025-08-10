@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
-
+import Image from 'next/image'
+import Logo from "@/public/botharbor.png"
 const navigation = [
   { name: 'Features', href: '/#features' },
   { name: 'Pricing', href: '/pricing' },
@@ -45,14 +46,18 @@ export default function Header() {
       isScrolled ? 'bg-gray-950/95 backdrop-blur-sm border-b border-gray-800' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 pt-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">BH</span>
+          <div className="flex items-center gap-2 mb-4">
+              <Link href="/" className="flex items-center ">
+            <div className="w-[3rem] h-[3rem] mr-2">
+              <Image src={Logo} alt='BH' />
             </div>
             <span className="text-xl font-bold text-white">BotHarbor</span>
+            
           </Link>
+             
+            </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
