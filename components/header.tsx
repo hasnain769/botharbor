@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
-import Logo from "@/public/botharbor.png"
-import Image from 'next/image'
 
 const navigation = [
   { name: 'Features', href: '/#features' },
@@ -50,9 +48,8 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-[3rem] h-[3rem]  ">
-            <Image src={Logo} alt='BH'></Image>
-              
+            <div className="w-8 h-8 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">BH</span>
             </div>
             <span className="text-xl font-bold text-white">BotHarbor</span>
           </Link>
